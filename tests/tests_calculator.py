@@ -12,8 +12,11 @@ class CalculatorTests(unittest.TestCase):
     assert multiply(3,4) == 12
 
   def test_divide(self):
-    assert divide(14,2) == 7
+    self.assertEqual(divide(14,2), 7, "Division 14 / 2")
   
   def test_divide_by_zero(self):
-    assert divide(12,0) == 0
+      # Usando assertRaises como contexto
+      with self.assertRaises(ValueError) as context:
+          divide(10, 0)
+    
 
